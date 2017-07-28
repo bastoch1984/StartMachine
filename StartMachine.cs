@@ -5,8 +5,8 @@ using Oxide.Core.Libraries.Covalence;
 
 namespace Oxide.Plugins
 {
-    [Info("StartMachine", "Wulf/lukespragg", "2.1.0", ResourceId = 1586)]
-    [Description("Starts machines automatically on server startup and by manual control")]
+    [Info("StartMachine", "Wulf/lukespragg", "2.1.1", ResourceId = 1586)]
+    [Description("Automatically start machines on server startup and by manual control")]
     public class StartMachine : CovalencePlugin
     {
         #region Configuration
@@ -45,13 +45,14 @@ namespace Oxide.Plugins
             try
             {
                 config = Config.ReadObject<Configuration>();
-                if (config == null) SaveConfig(); // TODO: If config is empty, plugin will error
+                if (config?.DrillControl == null) LoadDefaultConfig();
             }
             catch
             {
                 LogWarning($"Could not read oxide/config/{Name}.json, creating new config file");
+                LoadDefaultConfig();
             }
-            LoadDefaultConfig();
+            SaveConfig();
         }
 
         protected override void LoadDefaultConfig() => config = Configuration.DefaultConfig();
