@@ -5,7 +5,7 @@ using Oxide.Core.Libraries.Covalence;
 
 namespace Oxide.Plugins
 {
-    [Info("StartMachine", "Wulf/lukespragg", "2.1.1", ResourceId = 1586)]
+    [Info("StartMachine", "Wulf/lukespragg", "2.1.1")]
     [Description("Automatically start machines on server startup and by manual control")]
     public class StartMachine : CovalencePlugin
     {
