@@ -2,7 +2,7 @@
 
 ## Permissions
 
-- `startmachine.control` -- Allows player to stop/start all machines
+- **startmachine.control** -- Allows player to stop/start all machines
 
 ## Commands
 
